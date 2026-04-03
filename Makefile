@@ -9,6 +9,7 @@ qemu:
 	@echo "where 1234 is your QEMU port (which it is on my machine),"
 	@echo "and use si to step instructions manually."
 	@echo "QEMU is going to be halted until you manually unpause it and/or attach a debugger (which you should definitely do)"
+	@echo "BIOS output: "
 	@qemu-system-i386 -bios bios.bin -s -S -serial stdio
 
 clean:
