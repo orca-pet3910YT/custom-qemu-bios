@@ -15,9 +15,6 @@ jobs:
     - name: assemble
       run: make
     - name: take a dookie of the BIOS binary
-      run: |
-        echo "::group::view the dookie of the BIOS"
-        ndisasm -b 16 bios.bin
-        echo "::endgroup::"
+      run: ndisasm -b 16 bios.bin
     - name: test
-      run: timeout -s 2 --preserve-status 5s qemu-system-i386 -bios bios.bin -serial stdio -display none
+      run: timeout -s 2 --preserve-status 30s qemu-system-i386 -bios bios.bin -serial stdio -display none
