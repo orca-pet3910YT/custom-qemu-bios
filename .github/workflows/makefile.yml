@@ -19,3 +19,5 @@ jobs:
         echo "::group::view the dookie of the BIOS"
         ndisasm -b 16 bios.bin
         echo "::endgroup::"
+    - name: test
+      run: timeout -s 2 --preserve-status 5s qemu-system-i386 -bios bios.bin -serial stdio -display none
