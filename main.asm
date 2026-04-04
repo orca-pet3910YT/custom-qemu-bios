@@ -141,7 +141,17 @@ print:
 .done:
 	ret
 
-times 65536 - 14 - ($ - $$) db 0
+times 4 nop
+
+letter_a db 'E', 13, 10, 0
+ramtest_no_err db "No errors detected", 13, 10, 0
+msg db "Meow", 13, 10, 0
+ramtest_failmsg db "RAM test did not pass, system halted", 13, 10, 0
+ramtest_successmsg db "RAM test passed", 13, 10, 0
+ramtest_notify db "Starting RAM test, 65535 iterations of the following patterns", 13, 10, "0xFFFF, 0xAAAA, 0x5555, 0x0000", 13, 10, 0
+ramtest_err_count db "The number of following Es will say the amount of errors during the test: ", 0
+
+times 65536 - 10 - ($ - $$) db 0
 reset:
 	jmp 0xF000:start
 	times 9 db 0
