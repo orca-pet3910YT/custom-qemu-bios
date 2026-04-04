@@ -11,7 +11,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: install packages
-      run: sudo apt install nasm qemu-system-x86
+      run: sudo apt update; sudo apt install nasm qemu-system-x86
     - name: assemble
       run: make
     - name: take a dookie of the BIOS binary
