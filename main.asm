@@ -137,7 +137,8 @@ print:
 .done:
 	ret
 
-times 4 nop
+or ax, ax
+call $
 
 letter_a db 'E', 13, 10, 0
 ramtest_no_err db "No errors detected", 13, 10, 0
