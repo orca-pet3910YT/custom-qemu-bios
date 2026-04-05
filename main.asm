@@ -17,6 +17,12 @@ start:
 	mov bx, ramtest_err_count
 	call print
 	call print_count
+	mov bx, ramtest_repeat
+	call print
+	call ram_test
+	mov bx, ramtest_err_count
+	call print
+	call print_count
 	mov bx, msg
 	call print
 	hlt
@@ -140,6 +146,7 @@ ramtest_failmsg db "RAM test did not pass, system halted", 13, 10, 0
 ramtest_successmsg db "RAM test passed", 13, 10, 0
 ramtest_notify db "Starting RAM test, 65535 iterations of the following patterns", 13, 10, "0xFFFF, 0xAAAA, 0x5555, 0x0000", 13, 10, 0
 ramtest_err_count db "The number of following Es will say the amount of errors during the test: ", 0
+ramtest_repeat db "Repeating RAM test", 13, 10, 0
 
 times 65536 - 14 - ($ - $$) db 0
 reset:
