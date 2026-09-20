@@ -2,7 +2,7 @@ all:
 	@echo "Assembling main.asm"
 	@nasm -f bin -o bios.bin main.asm
 
-qemu:
+qemud:
 	@echo "Running in QEMU"
 	@echo "hint: use GDB with:"
 	@echo "target remote :1234"
@@ -12,9 +12,9 @@ qemu:
 	@echo "BIOS output: "
 	@qemu-system-i386 -bios bios.bin -s -S -serial stdio -display none
 
-qemu-n:
+qemu:
 	@echo "Running in QEMU"
-	@qemu-system-i386 -bios bios.bin -s -serial stdio -display none
+	@qemu-system-i386 -bios bios.bin -s -serial stdio -vga std
 
 clean:
 	@rm -f bios.bin
